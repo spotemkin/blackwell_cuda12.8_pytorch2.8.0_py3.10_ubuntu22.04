@@ -39,13 +39,13 @@ Now you can simply pull this image and start working with your RTX 5090 immediat
 ### Pull the image
 
 ```bash
-docker pull spotemkin/blackwell_cuda12.8_pytorch2.8.0_py3.10_ubuntu22.04:latest
+docker pull sergeypotemkin/blackwell_cuda12.8_pytorch2.8.0_py3.10_ubuntu22.04:latest
 ```
 
 ### Run container
 
 ```bash
-docker run --gpus all -it --rm spotemkin/blackwell_cuda12.8_pytorch2.8.0_py3.10_ubuntu22.04:latest
+docker run --gpus all -it --rm sergeypotemkin/blackwell_cuda12.8_pytorch2.8.0_py3.10_ubuntu22.04:latest
 ```
 
 ### Verify Blackwell support
@@ -61,7 +61,7 @@ python /usr/local/bin/verify_blackwell.py
 ```bash
 docker run --gpus all -it --rm \
   -v $(pwd):/workspace \
-  spotemkin/blackwell_cuda12.8_pytorch2.8.0_py3.10_ubuntu22.04:latest
+  sergeypotemkin/blackwell_cuda12.8_pytorch2.8.0_py3.10_ubuntu22.04:latest
 ```
 
 ## Pre-installed Packages
@@ -79,7 +79,7 @@ docker run --gpus all -it --rm \
 ### Use as base image
 
 ```dockerfile
-FROM spotemkin/blackwell_cuda12.8_pytorch2.8.0_py3.10_ubuntu22.04:latest
+FROM sergeypotemkin/blackwell_cuda12.8_pytorch2.8.0_py3.10_ubuntu22.04:latest
 
 # Add your code and dependencies
 COPY requirements.txt .
@@ -87,6 +87,11 @@ RUN pip install -r requirements.txt
 
 COPY . .
 ```
+
+## Modifications
+
+If you need build some others versions/packages - see and modify Dockerfile on my Github as you wish
+https://github.com/spotemkin/blackwell_cuda12.8_pytorch2.8.0_py3.10_ubuntu22.04
 
 ## Issues and Support
 
